@@ -44,7 +44,7 @@
             margin-bottom: 20px;
             text-shadow: 0 0 10px #00ff00;
         }
-        .download-btn, .telegram-btn {
+        .download-btn, .telegram-btn, .copy-btn {
             display: inline-block;
             background-color: #00ff00;
             color: black;
@@ -55,8 +55,9 @@
             transition: background-color 0.3s, color 0.3s;
             box-shadow: 0 0 10px #00ff00;
             margin-bottom: 10px;
+            cursor: pointer;
         }
-        .download-btn:hover, .telegram-btn:hover {
+        .download-btn:hover, .telegram-btn:hover, .copy-btn:hover {
             background-color: black;
             color: #00ff00;
         }
@@ -68,9 +69,11 @@
     <div class="container">
         <img src="logo.png" alt="App Logo" class="app-logo">
         <div class="app-title">DT Hack v5.0</div>
-        <a href="DT Hack v5.0.apk" class="download-btn">Download APK</a>
+        <a href="DT Hack v5.0_.apk" class="download-btn">Download APK</a>
         <br>
         <a href="https://telegram.dog/EarningScripter1" class="telegram-btn">Join Telegram</a>
+        <br>
+        <button class="copy-btn" onclick="copyPassword()">Copy Password: default-pwd</button>
     </div>
 
     <script>
@@ -114,6 +117,18 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
+
+        // Copy password function
+        function copyPassword() {
+            const password = "default-pwd";
+            const textarea = document.createElement("textarea");
+            textarea.value = password;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert("Password copied: " + password);
+        }
     </script>
 </body>
 </html>
